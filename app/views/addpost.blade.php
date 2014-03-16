@@ -13,6 +13,9 @@
                 {{ Form::textarea('content', null, array('placeholder' => 'Post Content')) }}
             </p>
             <p>
+                {{ Form::hidden('author_id', Auth::user()->id) }}
+            </p>
+            <p>
                 {{ Form::submit('Create Post') }}
             </p>
             {{ Form::close() }}

@@ -19,11 +19,7 @@ class PostController extends BaseController
 
     public function postAdd()
     {
-        Post::create(array(
-            'title'     => Input::get('title'),
-            'content'   => Input::get('content'),
-            'author_id' => Auth::user()->id
-        ));
+        Post::create(Input::all());
 
         return Redirect::route('index');
     }

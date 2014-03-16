@@ -6,7 +6,7 @@ class UserController extends BaseController
       $login_ok =  Auth::attempt(array(
             'email'    => Input::get('email'),
             'password' => Input::get('password')
-        ));
+      ));
 
       if ($login_ok) { return Redirect::route('add_new_post'); }
 
