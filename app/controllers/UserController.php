@@ -3,12 +3,15 @@ class UserController extends BaseController
 {
    public function postLogin()
    {
-        Auth::attempt(array(
+      $login_ok =  Auth::attempt(array(
             'email'    => Input::get('email'),
             'password' => Input::get('password')
         ));
 
-        return Redirect::route('add_new_post');
+      if ($login_ok) { return Redirect::route('add_new_post'); }
+
+      return Redirect::route('login')
+          ->with('login_errors', 'Your user credentials are wrong. Please try again');  
    }
 
    public function getLogin()

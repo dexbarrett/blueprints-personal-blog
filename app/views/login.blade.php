@@ -5,6 +5,9 @@
     <section class="container">
         <div class="login">
             <h1>Please Login</h1>
+            @if(Session::has('login_errors'))
+            <p>{{ Session::get('login_errors') }}</p>
+            @endif
             <p>
                 {{ Form::open(array('route' => 'login')) }}
             </p>
