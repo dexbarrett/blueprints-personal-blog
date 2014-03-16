@@ -8,5 +8,5 @@ Route::post('login', array('as' => 'login', 'uses' => 'UserController@postLogin'
 
 Route::group(array('before' => 'auth'), function(){
     Route::get('add', array('as' => 'add_new_post', 'uses' => 'PostController@getAdd'));
-    Route::post('add', array('as' => 'add_new_post', 'uses' => 'PostController@postAdd'));
+    Route::post('add', array('as' => 'add_new_post', 'uses' => 'PostController@postAdd', 'before' => 'csrf'));
 });
