@@ -2,7 +2,7 @@
 @section('page_title', 'My Awesome Blog - Post List')
 @section('styles')
     {{ HTML::style('assets/blog/css/styles.css') }}
-    {{ HTML::style('assets/blog/css/print.css') }}
+    {{ HTML::style('assets/blog/css/print.css', array('media' => 'print')) }}
 @stop
 @section('content')
     <div id="wrapper">
