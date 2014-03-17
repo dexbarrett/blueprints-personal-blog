@@ -7,9 +7,17 @@ class PostController extends BaseController
                     ->orderBy('id', 'DESC')
                     ->paginate(5);
 
-        return View::make('index')
+        return View::make('all_posts')
                     ->with(compact('posts'));
 
+    }
+
+    public function getView($id)
+    {
+        $post = Post::find($id);
+
+        return View::make('view_post')
+            ->with('post', $post);
     }
 
     public function getAdd()
