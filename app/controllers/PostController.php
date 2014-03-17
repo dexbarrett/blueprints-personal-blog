@@ -19,6 +19,19 @@ class PostController extends BaseController
 
     public function postAdd()
     {
+        $rules = array(
+            'title'   => 'required|min:5|max:255',
+            'content' => 'required'
+        );
+
+        $validator = Validator::make(Input::all(),$rules);
+
+        if ($validator->fails()) {
+            return Redirect::route('add_new_post')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
         Post::create(Input::all());
 
         return Redirect::route('index');
